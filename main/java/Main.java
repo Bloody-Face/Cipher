@@ -3,43 +3,11 @@ import java.io.UnsupportedEncodingException;
 
 public class Main {
     public static void main(String[] args) {
-        //а	1
-        //б	2
-        //в	3
-        //г	4
-        //д	5
-        //е	6
-        //ж	7
-        //з	8
-        //и	9
-        //й	10
-        //к	11
-        //л	12
-        //м	13
-        //н	14
-        //о	15
-        //п	16
-        //р	17
-        //с	18
-        //т	19
-        //у	20
-        //ф	21
-        //х	22
-        //ц	23
-        //ч	24
-        //ш	25
-        //щ	26
-        //ъ	27
-        //ы	28
-        //ь	29
-        //э	30
-        //ю	31
-        //я	32
-        String text = "Фйхжао пчу тефнэйч: <Уъшйттуй меиетнй фуршьнч те чйрйщут 100 хшёрйо>";
-        
+        String text = "Р¤Р№С…Р¶Р°Рѕ РїС‡Сѓ С‚РµС„РЅСЌР№С‡: <РЈСЉС€Р№С‚С‚СѓР№ РјРµРёРµС‚РЅР№ С„СѓСЂС€СЊРЅС‡ С‚Рµ С‡Р№СЂР№С‰СѓС‚ 100 С…С€С‘СЂР№Рѕ>";
+        System.out.println((int)'С‘' + " " + (int)'РЃ');
         System.out.println(text);
         for(int i = 1; i <=33 ; i++)
-            System.out.println(Decryption(text,i) + "\t| Сдвиг: " + i);
+            System.out.println(Decryption(text,i) + "\t| РЎРґРІРёРі: " + i);
     }
 
 
@@ -58,25 +26,25 @@ public class Main {
     }
     static char myFun(char letter, int number){
         int Dop = letter;
-        if(letter =='ё'){
+        if((int)letter ==1105){
             return template(7, 1071, number, true);
         }
-        if(letter =='Ё'){
+        if((int)letter ==1025){
             return template(7, 1039, number, true);
         }
-        if(Dop >= 1072 && Dop <= 1103){//Маленькие
+        if(Dop >= 1072 && Dop <= 1103){//РњР°Р»РµРЅСЊРєРёРµ
             return template(Dop - 1071, 1071, number, false);
         }
-        if(Dop >= 1040 && Dop <= 1071){ //Заглавные
+        if(Dop >= 1040 && Dop <= 1071){ //Р—Р°РіР»Р°РІРЅС‹Рµ
             return template(Dop - 1039, 1039, number, false);
         }
         return letter;
     }
     static char template(int initialValue, int shift, int number, boolean flagE){
-        // 1 арг: Номер буквы(от 1 до 32)
-        // 2 арг: Сдвиг для возращения кода буквы, для распознования заглавной и маленькой буквы
-        // 3 арг: Сдвиг буквы
-        // 4 арг: Это ё или нет
+        // 1 Р°СЂРі: РќРѕРјРµСЂ Р±СѓРєРІС‹(РѕС‚ 1 РґРѕ 32)
+        // 2 Р°СЂРі: РЎРґРІРёРі РґР»СЏ РІРѕР·СЂР°С‰РµРЅРёСЏ РєРѕРґР° Р±СѓРєРІС‹, РґР»СЏ СЂР°СЃРїРѕР·РЅРѕРІР°РЅРёСЏ Р·Р°РіР»Р°РІРЅРѕР№ Рё РјР°Р»РµРЅСЊРєРѕР№ Р±СѓРєРІС‹
+        // 3 Р°СЂРі: РЎРґРІРёРі Р±СѓРєРІС‹
+        // 4 Р°СЂРі: Р­С‚Рѕ С‘ РёР»Рё РЅРµС‚
         int tmp = initialValue;
         if(!flagE && tmp >= 7){
             tmp++;
@@ -85,8 +53,10 @@ public class Main {
         if(tmp>7){
             tmp--;
         }
-        if(tmp == 7)
-            return 'ё';
+        if(tmp == 7 && shift == 1071)
+            return (char)1105;
+        if(tmp == 7 && shift == 1039)
+            return (char)1025;
         tmp += shift;
         return (char)tmp;
     }

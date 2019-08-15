@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 public class Main {
     public static void main(String[] args) {
         String text = "Фйхжао пчу тефнэйч: <Уъшйттуй меиетнй фуршьнч те чйрйщут 100 хшёрйо>";
-        System.out.println((int)'ё' + " " + (int)'Ё');
         System.out.println(text);
         for(int i = 1; i <=33 ; i++)
             System.out.println(Decryption(text,i) + "\t| Сдвиг: " + i);
